@@ -193,3 +193,47 @@ Issues and PRs are welcome. If you have a Figma design workflow that could benef
 ---
 
 MIT © 2025 Sen Lin
+
+---
+
+## CIRCL Fork Notes (circl-tyo/claude2figma)
+
+このリポは upstream `senlindesign/claude2figma` (MIT) の CIRCL 用 fork。
+
+### 構造方針
+
+- `.claude/skills/` 配下は upstream 由来。**直接編集しない** (リベースで破壊される)
+- CIRCL カスタムの skill 本体は本 repo 外: `~/.claude/skills/circl-figma-{preflight,component-rules,style-binding,reference-interpreter}/`
+- upstream と CIRCL skill は別物として共存させる (同名 conflict を避けるため、CIRCL 側は `circl-figma-` prefix)
+
+### 上流追従ポリシー (月次)
+
+毎月初週に以下を実施:
+
+```bash
+cd ~/github/circl/agents/claude2figma
+git fetch upstream
+git log upstream/main --oneline -- .claude/skills/   # skill 配下の差分
+git merge upstream/main                                # or rebase
+```
+
+判断軸:
+
+- upstream の core ロジック (Auto Layout / Binding Hierarchy / QA-1) 改修 → 取り込み、`~/.claude/skills/circl-figma-*/SKILL.md` に反映
+- upstream の UX 文言改修 → 取り込まない (CIRCL は日本語 / output-style 準拠)
+- upstream の新 skill 追加 → 個別評価。要件があれば `circl-figma-` prefix で新規作成
+
+汎用的な fix (typo / Figma plugin API の誤り) は upstream に PR する。CIRCL 固有カスタム (Tokens Allowlist / prh / page-naming 連携) は upstream に PR しない。
+
+### CIRCL カスタム (差分要点)
+
+| 変更点 | 場所 | 理由 |
+|---|---|---|
+| skill name prefix `circl-figma-` | `~/.claude/skills/circl-figma-*` | CIRCL 命名規則統一 |
+| Tokens Allowlist 参照を強制 | `circl-figma-component-rules` Rule 5, `circl-figma-style-binding` | M2 Approved 35 件以外を bind しないため |
+| prh 辞書 (textlint MCP) 連携 | `circl-figma-component-rules` Rule 6, `circl-figma-style-binding` QA-2 | M3 構築の CIRCL 共通 + MOOV 28 ルールで表記揺れ防止 |
+| Component Registry 連携を disabled 化 | `circl-figma-preflight` | C2 タスクで構築予定。それまでは skip |
+| Opacity の bind 規則 | `circl-figma-style-binding` | M2 で `opacity/disabled` / `opacity/overlay` 追加のため |
+| Page 命名規則整合 (`figma-page-naming`) | `circl-figma-component-rules` Rule 7 | 既存 CIRCL skill との接続 |
+
+ライセンスは upstream の MIT を継承 (`LICENSE` ファイル維持)。
