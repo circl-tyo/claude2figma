@@ -1,6 +1,6 @@
 ---
 name: figma-style-binding
-description: "Triggers on any visual property change in Figma — creating text, setting colors, adjusting spacing/padding/gap/radius. Enforces that ALL values bind to Figma Styles or Variables, never hardcoded. Includes post-write QA verification."
+description: "[RETIRED W3 2026/06/10: 共有 circl-figma-* が正本] Triggers on any visual property change in Figma — creating text, setting colors, adjusting spacing/padding/gap/radius. Enforces that ALL values bind to Figma Styles or Variables, never hardcoded. Includes post-write QA verification."
 disable-model-invocation: false
 ---
 
