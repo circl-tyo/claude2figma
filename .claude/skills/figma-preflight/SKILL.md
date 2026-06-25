@@ -1,6 +1,6 @@
 ---
 name: figma-preflight
-description: "Triggers on 'let's start', 'begin', 'preflight', 'start the session', or when a Figma file URL is first shared. Verifies MCP connection, reads CLAUDE.md, audits connected libraries, and loads a Token Map of all Styles and Variables — required before any design work."
+description: "[RETIRED W3 2026/06/10: 共有 circl-figma-* が正本] Triggers on 'let's start', 'begin', 'preflight', 'start the session', or when a Figma file URL is first shared. Verifies MCP connection, reads CLAUDE.md, audits connected libraries, and loads a Token Map of all Styles and Variables — required before any design work."
 disable-model-invocation: false
 ---
 

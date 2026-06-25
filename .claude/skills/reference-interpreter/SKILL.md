@@ -1,6 +1,6 @@
 ---
 name: reference-interpreter
-description: "Triggers when user shares a screenshot, image, URL, or design description — or says 'analyze this', 'make a brief', 'interpret this reference'. Outputs a structured Design Brief mapping visual intent to design system tokens. Waits for 'confirmed' before designing."
+description: "[RETIRED W3 2026/06/10: 共有 circl-figma-* が正本] Triggers when user shares a screenshot, image, URL, or design description — or says 'analyze this', 'make a brief', 'interpret this reference'. Outputs a structured Design Brief mapping visual intent to design system tokens. Waits for 'confirmed' before designing."
 disable-model-invocation: false
 ---
 

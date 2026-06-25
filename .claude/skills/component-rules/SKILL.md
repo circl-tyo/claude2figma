@@ -1,6 +1,6 @@
 ---
 name: component-rules
-description: "Triggers when building any UI element in Figma — 'create a card', 'build a nav', 'add a section', 'make a component'. Enforces library-first component lookup, correct Auto Layout structure, and semantic node naming. For visual property binding (colors, text styles, spacing values), defer to figma-style-binding."
+description: "[RETIRED W3 2026/06/10: 共有 circl-figma-* が正本] Triggers when building any UI element in Figma — 'create a card', 'build a nav', 'add a section', 'make a component'. Enforces library-first component lookup, correct Auto Layout structure, and semantic node naming. For visual property binding (colors, text styles, spacing values), defer to figma-style-binding."
 disable-model-invocation: false
 ---
 
